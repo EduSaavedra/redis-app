@@ -6,19 +6,20 @@ pipeline {
                 sh 'docker build -t devops/app .'
             }
         }
-        stage('subir docker compose - redis e app'){
+        stage('Subir Docker Compose - Redis e APP'){
             steps {
                 sh 'docker-compose up --build -d'
             }
         }
-        stage('sleep para subida de containers'){
+        stage('Sleep para subida de containers'){
             steps{
                 sh 'sleep 10'
             }
         }
-        stage('teste da aplicação'){
+        stage('Teste da aplicação'){
             steps{
-                sh 'teste-app.sh'
+                sh 'chmod +x teste-app.sh'
+                sh './teste-app.sh'
             }
         }
     }
