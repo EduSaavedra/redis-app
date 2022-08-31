@@ -42,12 +42,6 @@ pipeline {
                 sh 'docker-compose down'
             }
         }
-        stage('Teste da aplicação'){
-            steps{
-                sh 'chmod +x teste-app.sh'
-                sh './teste-app.sh'
-            }
-        }
         stage('Upload Docker Image'){
             steps{
                 script{
